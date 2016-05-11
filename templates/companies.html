@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+					</div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>Companies</h1>
+		</div>
+	</div>
+
+<div class = 'flash'>
+<!-- Messsage Flashing -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+</div>
+
+    <div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+			<a href = '{{url_for('newCompany')}}'>
+				<button class="btn btn-default">
+					<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>Add Company
+				</button>
+			</a>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+    <!-- List all company names -->
+    {% for i in company %}
+
+        <a href = "{{url_for('viewEmp', company_id=i.id)}}"> 
+
+            <div class="row">
+				<div class="col-md-1"></div>
+					<div class="col-md-10 company-list">
+						<h3>{{i.name}}</h3>
+					</div>
+				<div class="col-md-1"></div>
+			</div>
+		</a>
+	{% endfor %}
+{% endblock %}
+

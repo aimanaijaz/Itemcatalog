@@ -1,0 +1,94 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>{{ company.name }}
+			<figure class="creator">
+				<figcaption> Owned by {{ creator.name }}</figcaption>
+			</figure>
+			</h1>
+
+		</div>
+	</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul>
+						{% for message in messages %}
+							 <li> <strong> {{ message }} </strong> </li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+	{% if employee !=[] %}	
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+				<h2>IT</h2>
+					{% for i in employee %}
+						{% if i.department == 'IT' %}
+							<div class="emp-details">
+								<h3>{{i.name}}</h3>
+								<p>{{i.id}}</p>
+								<p class="emp-id">{{i.email}}</p>
+								
+							</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-4">			
+				<h2>Sales</h2>
+					{% for i in employee %}
+						{% if i.department == 'Sales' %}
+						<div class="emp-details">
+							<h3>{{i.name}}</h3>
+							<p>{{i.id}}</p>
+							<p class="emp-id">{{i.email}}</p>
+							
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-3">
+				<h2>Management</h2>
+					{% for i in employee %}
+						{% if i.department == 'Management' %}
+						<div class="emp-details">
+							<h3>{{i.name}}</h3>
+							<p>{{i.id}}</p>
+							<p class="emp-id">{{i.email}}</p>
+							
+						</div>
+						{% endif %}
+					{% endfor %}
+				<h2>HR</h2>
+					{% for i in employee %}
+						{% if i.department == 'HR' %}
+						<div class="emp-details">
+							<h3>{{i.name}}</h3>
+							<p>{{i.id}}</p>
+							<p class="emp-id">{{i.email}}</p>
+							
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	{% endif %}
+{% endblock %}

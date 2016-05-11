@@ -1,0 +1,26 @@
+<html>
+
+<body>
+
+<h1> List of Users </h1>
+
+
+{% for i in user %}
+
+<div>
+<p>{{i.id}}</p>
+<p>{{i.name}}</p>
+<p>{{i.email}}</p>
+
+
+</div>
+
+<a href = "#"> Edit User </a> <br>
+<a href ="#"> Delete User </a>
+
+{% endfor %}
+
+
+</body>
+
+</html>

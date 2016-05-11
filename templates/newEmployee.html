@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+  <div class="row divider green">
+    <div class="col-md-12"></div>
+  </div>
+  <div class="row banner menu">
+    <div class="col-md-11 col-md-offset-1 padding-none">
+      <h1>New Employee</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1 padding-top">
+      <form action="{{url_for('newEmployee', company_id=company_id )}}" method = 'POST'>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the employee">
+
+          <label for="description">Date of Joining:</label>
+          <input type="text" class="form-control" maxlength="50" name="doj" placeholder="Date of joining">
+
+          <label for="price">Email:</label>
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type ="text" class="form-control" maxlength="50" name="email" placeholder="Email Address">
+          </div>
+          <label for="course">Department:</label>
+          <div class="radio">
+            <label>
+              <input type="radio" name="department" id="department1" value="IT">IT
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="department" id="department2" value="Sales">Sales
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="department" id="department3" value="Management">Management
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="department" id="department4" value="HR">HR
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default" id="submit" type="submit">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+      <div class="row divider green">
+            <div class="col-md-12"></div>
+      </div>
+      <div class="row banner menu">
+            <div class="col-md-11 col-md-offset-1 padding-none">
+                  <h1>Edit Employee</h1>
+            </div>
+      </div>
+      <div class="row">
+            <div class="col-md-6 col-md-offset-1 padding-top">
+              <!-- <form action= "{{url_for('editEmp', company_id = company_id, employee_id= employee_id)}}" method = 'POST'> -->
+                        <div class="form-group">
+                           <form action= "{{url_for('editEmp', company_id = company_id, employee_id= employee_id)}}" method = 'POST'>
+                              <label for="name">Name:</label>
+                              <input type ="text" maxlength="100" class="form-control" name="name" value="{{item.name }}">
+
+                              <label for="description">Date of Joining:</label>
+                              <input class="form-control" maxlength="10" name="doj" value = "{{item.doj}}">
+
+                              <label for="price">Email</label>
+                              <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type ="text" maxlength="50" class="form-control" name="email" value="{{item.email}}">
+                              </div>
+                              <label for="course">Department</label>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="department" id="department1" value="IT" {% if item.department == 'IT'%}checked{%endif%}>IT
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="department" id="department2" value="Sales" {% if item.department == 'Sales' %}checked{%endif%}>Sales
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="department" id="department3" value="Management" {% if item.department == 'Management'%}checked{%endif%}>Management
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="department" id="department4" value="HR" {%if item.department =='HR'%}checked{%endif%}>HR
+                                </label>
+                              </div>
+                              <button type="submit" class="btn btn-default" id="submit" type="submit">
+                              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+                              <a href = '{{url_for('viewEmp' , company_id = company_id)}}'> Cancel
+                              </a>
+                        </div>
+                         
+                  </form>
+            </div>
+      </div>
+{% endblock %}
+
+
+
+
+
+
+
+
